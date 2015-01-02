@@ -5,26 +5,26 @@
       <h1>Let's share this moment. It's life in :30 seconds. Ready set go.</h1>
       <div class="prerollList">
         <div class="prerollListTo">To:</div>
-        <button class="prerollListRecipients button">@ALL RSVPS</button>
-        <div class="rsvpFace" ng-repeat="rsvp in rsvps | limitTo : 6" >
-          <img ng-src="{{rsvp.face}}" alt="">
+        <button class="prerollListRecipients button button-small">@ALL RSVPS</button>
+        <div class="prerollRsvpFaces">
+          <div class="rsvpFace" ng-repeat="rsvp in rsvps | limitTo : 6" >
+            <img ng-src="{{rsvp.face}}" alt="">
+          </div>
+          <div class="prerollListCounter button button-outline button-small" ng-if="rsvps.length - 6 > 0">+{{rsvps.length - 6}}</div>
         </div>
-        <button class="prerollListCounter button button-outline" ng-if="rsvps.length - 6 > 0">+{{rsvps.length - 6}}</button>
       </div>
       <form class="list prerollInputs" name="data.prerollForm">
         <label class="item item-input item-floating-label">
           <span class="input-label">What should we call it?</span>
           <input type="text" placeholder="What should we call it?" name="rollTitle" ng-model="data.rollTitle" required>
         </label>
+        <span class="errorMsg" ng-if="!data.prerollForm.rollTitle.$valid && errorMsgOn">A roll name is required</span>
         <label class="item item-input item-floating-label">
           <span class="input-label">Where are you?</span>
           <input type="text" placeholder="Where are you?" name="loc" ng-model="data.rollLoc">
           <i class="icon ion-location placeholder-icon"></i>
         </label>
       </form>
-
-      data.prerollForm.rollTitle.$valid = {{data.prerollForm.rollTitle.$valid}}
-
       <div class="socialButtons">
         <p>Tell your friends.</p>
         <div class="button-bar">
@@ -32,16 +32,16 @@
           <a class="twitterButton button button-outline icon-left ion-social-twitter" ng-class="{selected: data.twitterEnabled}" ng-click="data.twitterEnabled = !data.twitterEnabled">Twitter</a>
         </div>
       </div>
-<!--       <div class="musicList">
+      <div class="musicList">
         <p>Your chosen soundtrack:</p>
         <div class="musicItem">
-          <div class="musicItemImg"></div>
-          <div class="musicItemSong"></div>
-          <div class="musicItemArtist"></div>
+          <div class="musicItemImg"><img ng-src="{{selectedSong.cover}}"></div>
+          <div class="musicItemSong">{{selectedSong.song}}</div>
+          <div class="musicItemArtist">{{selectedSong.artist}}</div>
         </div>
-      </div> -->
-      <div class="bottomButtons">
-        <button class="button button-energized" ng-click="submit();">Submit</button>
+      </div>
+      <div class="bottomButtons row">
+        <button class="button col-50 col-offset-25" ng-click="submit();" ng-class="{'button-energized': data.prerollForm.rollTitle.$valid}">Submit</button>
       </div>
     </main>
   </ion-content>

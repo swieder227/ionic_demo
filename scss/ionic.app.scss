@@ -57,20 +57,36 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	}
 }
 
+// Vertical Spacing
+.Preroll{
+	h1,
+	.prerollList,
+	form.prerollInputs,
+	.socialButtons{
+		margin: 1rem 0;
+
+		@media screen and (max-width: 500px) {
+			margin: 0.5rem 0;
+		}
+	}
+}
+
+
 /*----------------------------------------------------------
 	Header
 ------------------------------------------------------------*/
 .Preroll h1 {
 	color: $main-gray;
 	font-size: 1.2rem;
-	margin: 1rem 0 1rem;
+	// margin: 1rem 0 1rem;
 }
 
 /*----------------------------------------------------------
 	Preroll List
 ------------------------------------------------------------*/
 .prerollList {
-	margin: 1rem 0;
+	// margin: 1rem 0;
+	line-height: 3rem;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -78,22 +94,61 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	flex-wrap: wrap;
 
 	// Spacing
-	$preroll-spacing: 0.7;
+
+	$preroll-spacing: 1;
+
+
 	.prerollListTo,
 	.prerollListRecipients{
 		margin-right: $preroll-spacing+rem;
+
+		@media screen and (max-width: 500px) {
+			margin-right:  $preroll-spacing/2+rem;
+		}
 	}
-	.rsvpFace {
-		margin-right: ($preroll-spacing / 2)+rem;
-	}
+	.rsvpFace,
 	.prerollListCounter {
-		margin-left: ($preroll-spacing / 2)+rem;
+		margin-right: ($preroll-spacing / 2)+rem;
+
+		@media screen and (max-width: 500px) {
+			margin-right: ($preroll-spacing / 4)+rem;
+		}
 	}
 
 	.prerollListRecipients{
 		color: rgb(202, 75, 62);
 	}
+
+	.prerollRsvpFaces{
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+		.prerollRsvpFaces > .rsvpFace{
+			animation-name: zoomIn;
+			animation-duration: 0.4s;
+			animation-fill-mode: both;
+		}
+		.prerollRsvpFaces > .prerollListCounter{
+			animation-name: bounceIn;
+			animation-duration: 0.4s;
+			animation-fill-mode: both;
+		}
+
+
+	@for $i from 1 through 7 {
+		.prerollRsvpFaces > div:nth-child(#{$i}) {
+			animation-delay: $i*0.1+s;
+		}
+	}
+
 }
+
+@import "animate/zoomIn";
+@import "animate/bounceIn";
 
 .rsvpFace{
 	border-radius: 50%;
@@ -110,8 +165,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 /*----------------------------------------------------------
 	Inputs
 ------------------------------------------------------------*/
-.Preroll .prerollInputs{
-	margin: 1rem 0;
+.Preroll form.prerollInputs{
+	// margin: 1rem 0;
 	background-color: transparent;
 
 	//Inputs
@@ -126,6 +181,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 		color: $main-gray;
 	}
 	input{
+		height: 25px;
+		font-size: 1rem;
 		color: white;
 
 		&::-webkit-input-placeholder {
@@ -150,6 +207,22 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 		position: absolute;
 		right: 15px;
 		bottom: 10px;
+
+		&:before{
+			font-size: 1.5rem;
+		}
+	}
+
+	.errorMsg{
+		position: absolute;
+		color: red;
+		margin: 0.15rem 0;
+		font-size: 0.7rem;
+		font-style: italic;
+	}
+
+	label:last-child{
+		padding-top:20px;
 	}
 
 }
@@ -159,7 +232,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 ------------------------------------------------------------*/
 
 .socialButtons{
-	margin: 2rem 0;
+	padding-top: 0.5rem;
 
 	.button{
 		line-height: 47px;
@@ -177,3 +250,33 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 /*----------------------------------------------------------
 	Music
 ------------------------------------------------------------*/
+
+.musicItem{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: row;
+
+	.musicItemImg{
+		width: 2rem;
+		height: 2rem;
+		overflow: hidden;
+		margin-right: 0.7rem;
+	}
+
+	.musicItemArtist{
+		font-size: 0.8rem;
+		color: $main-gray;
+	}
+
+	.musicItemSong{
+		font-size: 0.8rem;
+		color: white;
+
+		&:after{
+			content: '-';
+			padding: 0 0.25rem;
+		}
+	}
+}
+

@@ -25,7 +25,8 @@ angular.module('starter.controllers', [])
 	  return array;
 	}
 
-	// Two-way binding
+	// Two-way data binding
+	// .data js object used for correct inheritance
 	// https://github.com/angular/angular.js/wiki/Understanding-Scopes
 	$scope.data = {
 		//Input Fields
@@ -36,41 +37,26 @@ angular.module('starter.controllers', [])
 		twitterEnabled:false,
 	};
 
+	// Filler data for song selection
+	$scope.selectedSong = {
+		cover: "http://lorempixel.com/100/100/abstract",
+		song: "Clarity",
+		artist: "Zedd feat Foxes",
+	}
+
+	// var used to show form validation
+	$scope.errorMsgOn = false;
+
 	// Submission fn checks 'required' fields
 	$scope.submit = function(){
 		if($scope.data.prerollForm.$valid){
-			alert("pass");
+			// pass data
+			console.log($scope.data);
 		} else {
-			alert("fail");
+			//set error msg
+			$scope.errorMsgOn = true;
 		}
 	};
 
 
 })
-
-// .controller('DashCtrl', function($scope) {})
-
-// .controller('ChatsCtrl', function($scope, Chats) {
-//   $scope.chats = Chats.all();
-//   $scope.remove = function(chat) {
-//     Chats.remove(chat);
-//   }
-// })
-
-// .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-//   $scope.chat = Chats.get($stateParams.chatId);
-// })
-
-// .controller('FriendsCtrl', function($scope, Friends) {
-//   $scope.friends = Friends.all();
-// })
-
-// .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-//   $scope.friend = Friends.get($stateParams.friendId);
-// })
-
-// .controller('AccountCtrl', function($scope) {
-//   $scope.settings = {
-//     enableFriends: true
-//   };
-// });
