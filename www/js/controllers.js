@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('PrerollCtrl', function($scope, RSVPS) {
+	// Get all RSVPs in list, randomize
 	$scope.rsvps = shuffle(RSVPS.all());
 
 	// Shuffle algorithm
@@ -24,8 +25,26 @@ angular.module('starter.controllers', [])
 	  return array;
 	}
 
-	$scope.facebookEnabled = false;
-	$scope.twitterEnabled = false;
+	// Two-way binding
+	// https://github.com/angular/angular.js/wiki/Understanding-Scopes
+	$scope.data = {
+		//Input Fields
+		rollTitle:'',
+		rollLoc:'',
+		//Social Media
+		facebookEnabled:false,
+		twitterEnabled:false,
+	};
+
+	// Submission fn checks 'required' fields
+	$scope.submit = function(){
+		if($scope.data.prerollForm.$valid){
+			alert("pass");
+		} else {
+			alert("fail");
+		}
+	};
+
 
 })
 

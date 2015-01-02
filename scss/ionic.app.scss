@@ -63,13 +63,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .Preroll h1 {
 	color: $main-gray;
 	font-size: 1.2rem;
-	margin: 1rem 0;
+	margin: 1rem 0 1rem;
 }
 
 /*----------------------------------------------------------
 	Preroll List
 ------------------------------------------------------------*/
 .prerollList {
+	margin: 1rem 0;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -156,13 +157,23 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 /*----------------------------------------------------------
 	Social Buttons
 ------------------------------------------------------------*/
-.facebookButton.activated,
-.twitterButton.activated{
-	background-color: lighten(rgba(104, 114, 119, 1),5%) !important;
+
+.socialButtons{
+	margin: 2rem 0;
+
+	.button{
+		line-height: 47px;
+
+		&.activated{
+			background-color: lighten(rgba(104, 114, 119, 1),5%) !important;
+		}
+		&.selected{
+			background-color: rgba(104, 114, 119, 1);
+			color: white;
+		}
+	}
 }
 
-.facebookButton.selected,
-.twitterButton.selected{
-	background-color: rgba(104, 114, 119, 1);
-	color: white;
-}
+/*----------------------------------------------------------
+	Music
+------------------------------------------------------------*/

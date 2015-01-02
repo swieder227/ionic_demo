@@ -7049,12 +7049,13 @@ a.button {
 .Preroll h1 {
   color: #d0cfcf;
   font-size: 1.2rem;
-  margin: 1rem 0; }
+  margin: 1rem 0 1rem; }
 
 /*----------------------------------------------------------
 	Preroll List
 ------------------------------------------------------------*/
 .prerollList {
+  margin: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -7112,9 +7113,16 @@ a.button {
 /*----------------------------------------------------------
 	Social Buttons
 ------------------------------------------------------------*/
-.facebookButton.activated, .twitterButton.activated {
-  background-color: #747f85 !important; }
+.socialButtons {
+  margin: 2rem 0; }
+  .socialButtons .button {
+    line-height: 47px; }
+    .socialButtons .button.activated {
+      background-color: #747f85 !important; }
+    .socialButtons .button.selected {
+      background-color: #687277;
+      color: white; }
 
-.facebookButton.selected, .twitterButton.selected {
-  background-color: #687277;
-  color: white; }
+/*----------------------------------------------------------
+	Music
+------------------------------------------------------------*/

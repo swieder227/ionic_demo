@@ -11,24 +11,37 @@
         </div>
         <button class="prerollListCounter button button-outline" ng-if="rsvps.length - 6 > 0">+{{rsvps.length - 6}}</button>
       </div>
-      <div class="list prerollInputs">
+      <form class="list prerollInputs" name="data.prerollForm">
         <label class="item item-input item-floating-label">
           <span class="input-label">What should we call it?</span>
-          <input type="text" placeholder="What should we call it?">
-          <i class="icon ion-location placeholder-icon"></i>
+          <input type="text" placeholder="What should we call it?" name="rollTitle" ng-model="data.rollTitle" required>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Where are you?</span>
-          <input type="text" placeholder="Where are you?">
+          <input type="text" placeholder="Where are you?" name="loc" ng-model="data.rollLoc">
+          <i class="icon ion-location placeholder-icon"></i>
         </label>
+      </form>
+
+      data.prerollForm.rollTitle.$valid = {{data.prerollForm.rollTitle.$valid}}
+
+      <div class="socialButtons">
+        <p>Tell your friends.</p>
+        <div class="button-bar">
+          <a class="facebookButton button button-outline icon-left ion-social-facebook" ng-class="{selected: data.facebookEnabled}" ng-click="data.facebookEnabled = !data.facebookEnabled">Facebook</a>
+          <a class="twitterButton button button-outline icon-left ion-social-twitter" ng-class="{selected: data.twitterEnabled}" ng-click="data.twitterEnabled = !data.twitterEnabled">Twitter</a>
+        </div>
       </div>
-      Tell your friends.
-      <div class="button-bar">
-        <a class="facebookButton button button-outline icon-left ion-social-facebook" ng-class="{selected: facebookEnabled}" ng-click="facebookEnabled = !facebookEnabled">Facebook</a>
-        <a class="twitterButton button button-outline icon-left ion-social-twitter" ng-class="{selected: twitterEnabled}" ng-click="twitterEnabled = !twitterEnabled">Twitter</a>
-      </div>
-      <div>
-        Your chosen soundtrack:
+<!--       <div class="musicList">
+        <p>Your chosen soundtrack:</p>
+        <div class="musicItem">
+          <div class="musicItemImg"></div>
+          <div class="musicItemSong"></div>
+          <div class="musicItemArtist"></div>
+        </div>
+      </div> -->
+      <div class="bottomButtons">
+        <button class="button button-energized" ng-click="submit();">Submit</button>
       </div>
     </main>
   </ion-content>
