@@ -7015,7 +7015,106 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.item-floating-label i {
+.Preroll {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #d0cfcf; }
+
+.Preroll main {
+  position: relative;
+  padding: 2%; }
+
+#cameraBG {
   position: absolute;
-  right: 15px;
-  bottom: 10px; }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  #cameraBG:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); }
+
+/*----------------------------------------------------------
+	Header
+------------------------------------------------------------*/
+.Preroll h1 {
+  color: #d0cfcf;
+  font-size: 1.2rem;
+  margin: 1rem 0; }
+
+/*----------------------------------------------------------
+	Preroll List
+------------------------------------------------------------*/
+.prerollList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .prerollList .prerollListTo, .prerollList .prerollListRecipients {
+    margin-right: 0.7rem; }
+  .prerollList .rsvpFace {
+    margin-right: 0.35rem; }
+  .prerollList .prerollListCounter {
+    margin-left: 0.35rem; }
+  .prerollList .prerollListRecipients {
+    color: #ca4b3e; }
+
+.rsvpFace {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden; }
+  .rsvpFace img {
+    width: 100%;
+    height: 100%; }
+
+/*----------------------------------------------------------
+	Inputs
+------------------------------------------------------------*/
+.Preroll .prerollInputs {
+  margin: 1rem 0;
+  background-color: transparent; }
+  .Preroll .prerollInputs .item-input {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-color: rgba(221, 221, 221, 0.5);
+    padding-left: 0; }
+  .Preroll .prerollInputs .input-label {
+    color: #d0cfcf; }
+  .Preroll .prerollInputs input {
+    color: white; }
+    .Preroll .prerollInputs input::-webkit-input-placeholder {
+      color: #d0cfcf; }
+    .Preroll .prerollInputs input:-moz-placeholder {
+      /* Firefox 18- */
+      color: #d0cfcf; }
+    .Preroll .prerollInputs input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #d0cfcf; }
+    .Preroll .prerollInputs input:-ms-input-placeholder {
+      color: #d0cfcf; }
+  .Preroll .prerollInputs .item-floating-label i {
+    position: absolute;
+    right: 15px;
+    bottom: 10px; }
+
+/*----------------------------------------------------------
+	Social Buttons
+------------------------------------------------------------*/
+.facebookButton.activated, .twitterButton.activated {
+  background-color: #747f85 !important; }
+
+.facebookButton.selected, .twitterButton.selected {
+  background-color: #687277;
+  color: white; }

@@ -1,26 +1,35 @@
 <ion-view view-title="Preroll">
-  <ion-content class="padding">
-    <h1>Let's share this moment. It's life in :30 seconds. Ready set go.</h1>
-    <div>
-      To: TODO
-    </div>
-    <div class="list list-inset">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">What should we call it?</span>
-        <input type="text" placeholder="What should we call it?">
-        <i class="icon ion-location placeholder-icon"></i>
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Where are you?</span>
-        <input type="text" placeholder="Where are you?">
-      </label>
-    </div>
-    <div class="button-bar">
-      <a class="button button-outline icon-left ion-social-facebook">Facebook</a>
-      <a class="button button-outline icon-left ion-social-twitter">Twitter</a>
-    </div>
-    <div>
-      Your chosen soundtrack:
-    </div>
+  <div id="cameraBG"></div>
+  <ion-content class="Preroll">
+    <main>
+      <h1>Let's share this moment. It's life in :30 seconds. Ready set go.</h1>
+      <div class="prerollList">
+        <div class="prerollListTo">To:</div>
+        <button class="prerollListRecipients button">@ALL RSVPS</button>
+        <div class="rsvpFace" ng-repeat="rsvp in rsvps | limitTo : 6" >
+          <img ng-src="{{rsvp.face}}" alt="">
+        </div>
+        <button class="prerollListCounter button button-outline" ng-if="rsvps.length - 6 > 0">+{{rsvps.length - 6}}</button>
+      </div>
+      <div class="list prerollInputs">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">What should we call it?</span>
+          <input type="text" placeholder="What should we call it?">
+          <i class="icon ion-location placeholder-icon"></i>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Where are you?</span>
+          <input type="text" placeholder="Where are you?">
+        </label>
+      </div>
+      Tell your friends.
+      <div class="button-bar">
+        <a class="facebookButton button button-outline icon-left ion-social-facebook" ng-class="{selected: facebookEnabled}" ng-click="facebookEnabled = !facebookEnabled">Facebook</a>
+        <a class="twitterButton button button-outline icon-left ion-social-twitter" ng-class="{selected: twitterEnabled}" ng-click="twitterEnabled = !twitterEnabled">Twitter</a>
+      </div>
+      <div>
+        Your chosen soundtrack:
+      </div>
+    </main>
   </ion-content>
 </ion-view>
