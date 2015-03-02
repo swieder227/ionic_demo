@@ -1,11 +1,9 @@
-# Ionic Demo
+#Prototype Form Utilizing Ionic
 
-This repo is a prototype form, with validation, for a WIP mobile application. 
+![Screenshot](https://raw.githubusercontent.com/swieder227/ionic_demo/master/www/img/screenshot.png)
 
-Code usage: 
-+ HTML5
-+ CSS3/[Sass](http://sass-lang.com/)
-+ Javascript MVC [AngularJS](https://angularjs.org/)
-+ UI Framework [Ionic](http://ionicframework.com/)
-
-
+#### The Ask
+Develop a prototype form with basic validation, and demonstate an ability in:
++ [Ionic](http://ionicframework.com/) (UI SDK)
++ [AngularJS](https://angularjs.org/) (Javascript MVC Framework)
++ [Sass](http://sass-lang.com/) (CSS Preprocessor)
